@@ -1,0 +1,111 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #1e1e1e;
+  color: white;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.box {
+  margin: 10px 0;
+}
+
+select, input, button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+#card {
+  width: 80%;
+  max-width: 320px;
+  height: 150px;
+  background: #2a2a2a;
+  margin: 20px auto;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s;
+}
+
+#card.card-hidden {
+  background: #111;
+}
+
+#displayText {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.text-hidden {
+  display: none;
+}
+
+#cardHint {
+  position: absolute;
+  bottom: 10px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+#startMessage {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+#endButtons button {
+  margin: 10px 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* Fade Animation */
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Fade für Text auf Karte */
+.text-fade-in {
+  animation: textFadeIn 0.5s forwards;
+}
+
+@keyframes textFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Pop-Up Animation für Kartencontainer beim Spielerwechsel */
+.pop-up {
+  animation: popUp 0.3s forwards;
+}
+
+@keyframes popUp {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}

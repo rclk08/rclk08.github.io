@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Imposter Spiel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2196F3">
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registriert', reg))
+          .catch(err => console.log('Service Worker Fehler', err));
+      });
+    }
+</script>
+
+
+</head>
+<body>
+
+<h1>Imposter Spiel</h1>
+
+<div id="settings">
+  <div class="box">
+    <label>
+      Begriffe:
+      <select id="languageSelect">
+        <option value="de">Deutsch</option>
+        <option value="tr">Türkisch</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="box">
+    <label>
+      Spieleranzahl:
+      <input type="number" id="playerCount" min="3" max="15" value="6">
+    </label>
+  </div>
+
+  <div class="box">
+    <label>
+      Anzahl Imposter:
+      <input type="number" id="imposterCount" min="1" max="5" value="1">
+    </label>
+  </div>
+
+  <button id="startBtn">Spiel starten</button>
+  <p id="infoText"></p>
+</div>
+
+<div id="gameArea" class="hidden">
+  <div id="cardsContainer">
+    <p id="playerInfo"></p>
+
+    <div id="card" class="card-hidden">
+      <p id="displayText" class="text-hidden"></p>
+      <p id="cardHint">Klicke hier, um zu sehen</p>
+    </div>
+
+    <button id="nextBtn">Weitergeben</button>
+  </div>
+
+  <p id="startMessage" class="hidden"></p>
+
+  <div id="endButtons" class="hidden">
+    <button id="restartBtn">Spiel neu starten</button>
+    <button id="menuBtn">Zum Hauptmenü</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
